@@ -28,7 +28,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-$response  = json_decode(curl_exec($ch), true);
+$response  = json_decode(curl_exec($curl), true);
 
 curl_close($ch);
 

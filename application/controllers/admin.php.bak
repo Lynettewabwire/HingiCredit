@@ -14,7 +14,8 @@ class admin extends CI_Controller {
 			$data['title']="Admin | HingiCredit";
 			$data['author']="don brians";
 			$data['bactive']=$this->M_admin->get_banks_activate();
-			$data['bblocked']="don brians";
+			$data['bblocked']=$this->M_admin->get_banks_blocked();
+			
 			
 			if(isset($view)){
 				$data['view']=$view;

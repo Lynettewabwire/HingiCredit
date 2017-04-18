@@ -49,16 +49,34 @@ class home extends CI_Controller {
 				$this->index($er="<p style='color:#de0017; font-weight:bold;>Your Username or password is wrong</p>'");
 			}
 			
-		} else {
+		}else{
+		
 			$log_dets=array(
 				'email'=>$em,
 				'password'=>$pwd
 			);
 			
-			$this->load->model('M_admin');
-			$chk_login=$this->M_admin->admin_login($log_dets);
+			$this->load->model('M_bank');
+			$chk_login=$this->M_bank->bank_login($log_dets);
 			
-			
+			if($chk_login){
+				$dets=$this->M_bank->get_user_dets($em);
+				
+				$session_array=array(
+					'ctrl'=>'bank',
+					'bud_id'=>$dets->id,
+					'btype'=>'bank_admin',
+					'brole'=>'admin',//$dets->role,
+					'bemail'=>$em
+				);
+				
+				//print_r($session_array); return;
+				$this->session->set_userdata($session_array);
+				
+				redirect("bank");
+			}else {
+				$this->index($er="<p style='color:#de0017; font-weight:bold;>Your Username or password is wrong</p>'");
+			}
 		}
 		
 		
@@ -66,7 +84,7 @@ class home extends CI_Controller {
 	}
 	
 	public function loggedin(){
-		if($this->session->userdata("type")){
+		if($this->session->userdata("ctrl")){
 			return true;
 		} else{
 			return false;

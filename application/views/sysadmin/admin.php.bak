@@ -57,6 +57,13 @@
 							} else {
 								$this->load->view('sysadmin/dashboard');
 							}
+							
+							/*
+								url = 'https://ussouthcentral.services.azureml.net/workspaces/3e1515433b9d477f8bd02b659428cddc/services/cb1b14b17422435984943d51b5957ec7/execute?api-version=2.0&details=true'
+								api_key = 'abc123'
+								headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+							*/
 						?>
 							
 						
@@ -67,7 +74,7 @@
 	</div>
 </body>
 
-
+//https://github.com/donbrians/HingiCredit.git
 <script>
 	
 	$("#togle_side_menu").click(function(){

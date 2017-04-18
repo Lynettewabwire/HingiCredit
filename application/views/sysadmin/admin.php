@@ -74,7 +74,6 @@
 	</div>
 </body>
 
-//https://github.com/donbrians/HingiCredit.git
 <script>
 	
 	$("#togle_side_menu").click(function(){

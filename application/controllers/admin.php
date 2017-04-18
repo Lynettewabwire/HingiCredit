@@ -47,7 +47,7 @@ class admin extends CI_Controller {
 	}
 	
 	public function loggedin(){
-		if($this->session->userdata("ctrl","ad_id","type","role","username")){
+		if($this->session->userdata("ad_id","type","role","username")){
 			return true;
 		} else{
 			return false;
