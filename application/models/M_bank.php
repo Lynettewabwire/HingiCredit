@@ -85,22 +85,14 @@ class M_bank extends CI_Model {
 
 	//getting last insertd id
 	public function get_lastinsertedid(){
-		// return $this->db->insert_id();exit;
 		$this->db->select_max('id');
 		$query = $this->db->get('applications')->row('id');
-		//$row = $query->row_array();
-		return $query; //$row['LAST_INSERT_ID()'];
+		return $query; 
 	}
 
-	//geeting data coresponding to last inserted id
+	//getting data coresponding to last inserted id
 	public function get_lastdata($id){
 		return $this->db->where('id', $id)->get('applications')->row();
-		// $query = $this->db->query('Select * from applications where id = 13');
-		// foreach ($query->result_array() as $row)
-		// {
-		//   return $row['applicantName'];
-		   
-		// }
 	}
 	public function insert_getazuredata($id,$data){
 		$this->db->update('applications', $data, array('id' => $id));
