@@ -255,10 +255,7 @@ public function reportmodal(){
 		//echo 'Curl error: ' . curl_error($ch);
 		
 		curl_close($ch);
-		//$data['resp'] = $result->Results->output1->value->Values['0'];
-		//$data['resp'] = $from_db->id;
-		//echo $response;
-		//$this->M_bank->add_application($loan_application);
+		
 		$newdata = array(
         'scoreLabel' => $result->Results->output1->value->Values['0']['14'],
         'scoreProbability' => $result->Results->output1->value->Values['0']['15'],
